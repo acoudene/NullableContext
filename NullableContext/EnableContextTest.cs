@@ -18,7 +18,7 @@ namespace NullableContext
       myClass.MyNullableData = "NotNull";
 
       myData = myClass.MyNullableData; // No warning
-    }
+    } 
 
     [Fact]
     public void EnableContextTest_On_Nullable_Assignment_And_Forgiving_Operator()
