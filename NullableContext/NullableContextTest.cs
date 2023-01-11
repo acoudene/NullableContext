@@ -13,8 +13,11 @@ namespace NullableContext
 
       // MyNullableData is declared as string?
       string myData = myClass.MyNullableData; /// Generate CS8600 warning 
-      /// <see cref="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings?f1url=%3FappId%3Droslyn%26k%3Dk(CS8600)#possible-null-assigned-to-a-nonnullable-reference"/>
-                                              
+                                              /// <see cref="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-messages/nullable-warnings?f1url=%3FappId%3Droslyn%26k%3Dk(CS8600)#possible-null-assigned-to-a-nonnullable-reference"/>
+
+      string nullCoData = myClass.MyNullableData ?? "DefaultValue";
+      nullCoData = myClass.MyData ?? "DefaultValue";
+
       myClass.MyNullableData = "NotNull";
 
       myData = myClass.MyNullableData; // No warning
