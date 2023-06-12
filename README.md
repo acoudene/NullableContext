@@ -1,7 +1,8 @@
 # NullableContext
 
 Just a quick tutorial to explain Nullable Context.
-To see best practices on nullability testing for references, see my nested tests and this documentation: [NullableContext/NullabilityTesting.md](NullableContext/NullabilityTesting.md)
+
+Note: to see other best practices specifically on nullability testing for references, see my nested tests and my other documentation here: [NullableContext/NullabilityTesting.md](NullableContext/NullabilityTesting.md)
 
 _in french_
 
