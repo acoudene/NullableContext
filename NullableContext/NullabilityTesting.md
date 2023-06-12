@@ -172,22 +172,23 @@ public void SpecificNullabilityTestingUseCases()
 
   // A good way of testing but not the most secured one
   if (overridedOperatorsClass?.Child is null)
-  { 
+  {
+    // Do something
   }
   else
   {
-    // Not expected, instance is null
+    // Not expected, child instance is null
     Assert.Fail("Not expected");
   }
 
   // The best of way of testing using pattern matching
   if (overridedOperatorsClass is { Child : null })
   {
-
+    // Do something
   }
   else
   {
-    // Not expected, instance is null
+    // Not expected, child instance is null
     Assert.Fail("Not expected");
   }
 
@@ -197,21 +198,22 @@ public void SpecificNullabilityTestingUseCases()
   // A good way of testing but not the most secured one
   if (overridedOperatorsClass?.Child is not null)
   {
+    // Do something
   }
   else
   {
-    // Not expected, instance is null
+    // Not expected, child instance is not null
     Assert.Fail("Not expected");
   }
 
   // The best of way of testing using pattern matching
   if (overridedOperatorsClass is { Child: not null })
   {
-
+    // Do something
   }
   else
   {
-    // Not expected, instance is null
+    // Not expected, child instance is not null
     Assert.Fail("Not expected");
   }
 }
