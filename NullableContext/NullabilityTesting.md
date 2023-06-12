@@ -6,13 +6,13 @@ _in french_
 
 # Objectifs
 
-Montrer par des tests codés les écueils à utiliser les opérateurs != ou == pour tester une référence nulle.
-Montrer les bonnes pratiques, à savoir utiliser les opérateurs `is` et `is not`, afin de tester la valeur nulle mais aussi d'autres critères via le pattern matching.
+Montrer par des tests codÃ©s les Ã©cueils Ã  utiliser les opÃ©rateurs != ou == pour tester une rÃ©fÃ©rence nulle.
+Montrer les bonnes pratiques, Ã  savoir utiliser les opÃ©rateurs `is` et `is not`, afin de tester la valeur nulle mais aussi d'autres critÃ¨res via le pattern matching.
 
-# Prérequis
+# PrÃ©requis
 
-Pour illustrer, la problématique nous utilisons la définition de classe ci-après.
-J'ai volontairement surchargé les opérateurs afin de forcer `false` à chaque fois.
+Pour illustrer, la problÃ©matique nous utilisons la dÃ©finition de classe ci-aprÃ¨s.
+J'ai volontairement surchargÃ© les opÃ©rateurs afin de forcer `false` Ã  chaque fois.
 
 ```
 class OverridedOperatorsClass
@@ -34,7 +34,7 @@ class OverridedOperatorsClass
 
 # Ce qu'il ne faut plus faire
 
-Il ne faut plus tester avec l'opérateur car sinon avec la définition de classe précédente, on n'aura pas le résultat voulu, à savoir tester des références :
+Il ne faut plus tester avec l'opÃ©rateur car sinon avec la dÃ©finition de classe prÃ©cÃ©dente, on n'aura pas le rÃ©sultat voulu, Ã  savoir tester des rÃ©fÃ©rences :
 
 ```
 [Fact]
@@ -61,16 +61,16 @@ public void BadWayOfTestingNull()
 }
 ```
 
-# Ce qu'on peut faire mais sans être la meilleure méthode
+# Ce qu'on peut faire mais sans Ãªtre la meilleure mÃ©thode
 
-Si on a une version de C# < 9 alors on peut utiliser la fonction ReferenceEquals qui va utiliser la définition en Object des paramètres garantissant qu'aucun opérateur n'a été surchargé.
-Sinon, on peut utiliser du pattern matching en testant une instance de comparaison n'ayant pas de critères `{ }` mais permettant de vérifier qu'on veut une instance non nulle.
+Si on a une version de C# < 9 alors on peut utiliser la fonction ReferenceEquals qui va utiliser la dÃ©finition en Object des paramÃ¨tres garantissant qu'aucun opÃ©rateur n'a Ã©tÃ© surchargÃ©.
+Sinon, on peut utiliser du pattern matching en testant une instance de comparaison n'ayant pas de critÃ¨res `{ }` mais permettant de vÃ©rifier qu'on veut une instance non nulle.
 
 ```
 [Fact]
 public void BetterWayOfTestingNullButNotGoodOnes()
 {
-  OverridedOperatorsClass overridedOperatorsClass = nulmais sans être la meilleure méthode
+  OverridedOperatorsClass overridedOperatorsClass = nulmais sans Ãªtre la meilleure mÃ©thode
 
   // A better way of testing but not the best one
   if (ReferenceEquals(overridedOperatorsClass, null))
@@ -82,10 +82,9 @@ public void BetterWayOfTestingNullButNotGoodOnes()
     // Not expected, instance is null
     Assert.Fail("Not expected");
   }
-
-  // Another betmais sans être la meilleure méthode
   
-  PndOperatorsClass is not { })
+  // Another better way of testing using pattern matching, { } means instance exists
+  if (overridedOperatorsClass is not { })
   {
     // Do something
   }
@@ -96,9 +95,7 @@ public void BetterWayOfTestingNullButNotGoodOnes()
   }
 
   // Instanciate
-  overridedOperatorsClass = new OverridedOperatorsClass(mais sans être la meilleure méthode
-
-  Pn
+  overridedOperatorsClass = new OverridedOperatorsClass();
 
   // A better way of testing but not the best one
   if (!ReferenceEquals(overridedOperatorsClass, null))
@@ -126,7 +123,7 @@ public void BetterWayOfTestingNullButNotGoodOnes()
 
 # Conclusion ou ce qu'il faut faire
 
-Pour tester la nullabilité d'une référence il faut utiliser l'opérateur `is` ou `is not` depuis C# 9 (en version inférieure on utilisera `ReferenceEquals` comme vu précédemment)
+Pour tester la nullabilitÃ© d'une rÃ©fÃ©rence il faut utiliser l'opÃ©rateur `is` ou `is not` depuis C# 9 (en version infÃ©rieure on utilisera `ReferenceEquals` comme vu prÃ©cÃ©demment)
 
 ```
 [Fact]
@@ -163,9 +160,9 @@ public void BestWayOfTestingNull()
 
 # Pour aller, plus loin, le pattern matching
 
-Il est important de souligner que le pattern matching peut permettre d'avoir une meilleure maîtrise et une meilleure clarté de ce qu'on veut tester.
-Il est intéressant d'utiliser ce type d'écriture : `is { <Property>: <ExpectedValue> }` ou `is not { <Property>: <ExpectedValue> }`.
-Voir la documentation Microsoft pour plus de détail.
+Il est important de souligner que le pattern matching peut permettre d'avoir une meilleure maÃ®trise et une meilleure clartÃ© de ce qu'on veut tester.
+Il est intÃ©ressant d'utiliser ce type d'Ã©criture : `is { <Property>: <ExpectedValue> }` ou `is not { <Property>: <ExpectedValue> }`.
+Voir la documentation Microsoft pour plus de dÃ©tail.
 
 ```
 [Fact]
