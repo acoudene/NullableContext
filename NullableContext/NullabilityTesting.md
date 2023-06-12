@@ -70,7 +70,7 @@ Sinon, on peut utiliser du pattern matching en testant une instance de comparais
 [Fact]
 public void BetterWayOfTestingNullButNotGoodOnes()
 {
-  OverridedOperatorsClass overridedOperatorsClass = nulmais sans être la meilleure méthode
+  OverridedOperatorsClass overridedOperatorsClass = null;
 
   // A better way of testing but not the best one
   if (ReferenceEquals(overridedOperatorsClass, null))
