@@ -50,15 +50,15 @@ Ces modes sont applicables au niveau du projet :
 On peut également appliquer ces modes de manière chirurgicale dans le code.
 
 ```
-#nullable enable: Sets the nullable annotation context and nullable warning context to enable.
-#nullable disable: Sets the nullable annotation context and nullable warning context to disable.
-#nullable restore: Restores the nullable annotation context and nullable warning context to the project settings.
-#nullable disable warnings: Set the nullable warning context to disable.
-#nullable enable warnings: Set the nullable warning context to enable.
-#nullable restore warnings: Restores the nullable warning context to the project settings.
-#nullable disable annotations: Set the nullable annotation context to disable.
-#nullable enable annotations: Set the nullable annotation context to enable.
-#nullable restore annotations: Restores the annotation warning context to the project settings.
+#nullable enable // Sets the nullable annotation context and nullable warning context to enable.
+#nullable disable // Sets the nullable annotation context and nullable warning context to disable.
+#nullable restore // Restores the nullable annotation context and nullable warning context to the project settings.
+#nullable disable warnings // Set the nullable warning context to disable.
+#nullable enable warnings // Set the nullable warning context to enable.
+#nullable restore warnings // Restores the nullable warning context to the project settings.
+#nullable disable annotations // Set the nullable annotation context to disable.
+#nullable enable annotations // Set the nullable annotation context to enable.
+#nullable restore annotations // Restores the annotation warning context to the project settings.
 ```
 
 # Exemples
